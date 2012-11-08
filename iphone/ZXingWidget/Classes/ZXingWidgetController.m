@@ -281,7 +281,7 @@
 }
 
 - (void)decoder:(Decoder *)decoder failedToDecodeImage:(UIImage *)image usingSubset:(UIImage *)subset reason:(NSString *)reason {
-  decoder.delegate = nil;
+  // decoder.delegate = nil; Removed as the PDF417 fails continuously and it prevents the scanner to be dismissed
   [overlayView setPoints:nil];
 }
 
