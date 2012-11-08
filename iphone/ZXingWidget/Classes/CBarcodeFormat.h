@@ -34,7 +34,8 @@ typedef enum BarcodeFormat {
     BarcodeFormat_CODE_128,
     BarcodeFormat_CODE_39,
     BarcodeFormat_ITF,
-    BarcodeFormat_AZTEC
+    BarcodeFormat_AZTEC,
+    BarcodeFormat_PDF417
 } BarcodeFormat;
 
 #endif // __CBARCODE_FORMAT_H__

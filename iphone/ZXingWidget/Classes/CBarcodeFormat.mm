@@ -46,6 +46,8 @@ BarcodeFormat CBarcodeFormatConvert(zxing::BarcodeFormat value) {
     return BarcodeFormat_ITF;
   case zxing::BarcodeFormat_AZTEC:
     return BarcodeFormat_AZTEC;
+  case zxing::BarcodeFormat_PDF417:
+    return BarcodeFormat_PDF417;
   }
 
   return BarcodeFormat_None;

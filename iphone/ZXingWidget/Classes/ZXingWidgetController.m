@@ -485,16 +485,25 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
   }
   CGImageRef newImage = CGImageCreateWithImageInRect(capture, cropRect);
   CGImageRelease(capture);
-  UIImage *scrn = [[UIImage alloc] initWithCGImage:newImage];
-  CGImageRelease(newImage);
+  // UIImage *scrn = [[UIImage alloc] initWithCGImage:newImage];
+  // CGImageRelease(newImage);
   Decoder *d = [[Decoder alloc] init];
   d.readers = readers;
   d.delegate = self;
   cropRect.origin.x = 0.0;  
   cropRect.origin.y = 0.0;
-  decoding = [d decodeImage:scrn cropRect:cropRect] == YES ? NO : YES;
+  // decoding = [d decodeImage:scrn cropRect:cropRect] == YES ? NO : YES;
+// added an additional rotated image to make pdf work in landscape (default orientation)  
+  UIImage *testTemp = [[UIImage alloc] initWithCGImage:newImage];
+  decoding = [d decodeImage:testTemp] == YES ? NO : YES;
+  CGImageRef rotated = [self CGImageRotated90:newImage];
+  UIImage *testTempRotated = [[UIImage alloc] initWithCGImage:rotated];
+  decoding = [d decodeImage:testTempRotated] == YES ? NO : YES;
+  [testTempRotated release];
+  [testTemp release];
+  CGImageRelease(newImage);
   [d release];
-  [scrn release];
+  // [scrn release];
 } 
 #endif
 

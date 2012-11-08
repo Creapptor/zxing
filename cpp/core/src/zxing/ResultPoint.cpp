@@ -40,6 +40,15 @@ float ResultPoint::getY() const {
   return posY_;
 }
 
+void ResultPoint::setX(float f) {
+    posX_ = f;
+}
+
+void ResultPoint::setY(float f) {
+    posY_ = f;
+};
+
+    
 bool ResultPoint::equals(Ref<ResultPoint> other) {
   return posX_ == other->getX() && posY_ == other->getY();
 }

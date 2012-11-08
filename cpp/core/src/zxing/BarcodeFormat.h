@@ -34,7 +34,8 @@ namespace zxing {
         BarcodeFormat_CODE_128,
         BarcodeFormat_CODE_39,
         BarcodeFormat_ITF,
-        BarcodeFormat_AZTEC
+        BarcodeFormat_AZTEC,
+        BarcodeFormat_PDF417
     } BarcodeFormat;
 
     /* if you update the enum, please update the name in BarcodeFormat.cpp */

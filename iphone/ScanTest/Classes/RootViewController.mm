@@ -26,13 +26,14 @@
 #endif
 
 #ifndef ZXAZ
-#define ZXAZ 0
+#define ZXAZ 1
 #endif
 
 #if ZXAZ
 #import "AztecReader.h"
 #endif
 
+#import "PDF417Reader.h"
 
 @interface RootViewController()
 
@@ -68,6 +69,10 @@
   [readers addObject:aztecReader];
   [aztecReader release];
 #endif
+    
+  PDF417Reader *pdf417Reader = [[PDF417Reader alloc] init];
+  [readers addObject:pdf417Reader];
+  [pdf417Reader release];
     
   widController.readers = readers;
   [readers release];

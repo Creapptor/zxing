@@ -60,6 +60,7 @@ ZXingWidgetControllerCallback(Decoder* _decoder) : decoder(_decoder) {}
 }
 
 - (void)didDecodeImage:(TwoDDecoderResult *)result {
+  NSLog(@"Result: %@", result.text);
   if ([self.delegate respondsToSelector:@selector(decoder:didDecodeImage:usingSubset:withResult:)]) {
     [self.delegate decoder:self didDecodeImage:self.image usingSubset:self.subsetImage withResult:result];
   }
